@@ -1,0 +1,10 @@
+<!-- csv_analyzer/templates/csv_analyzer/view_report.html -->
+
+<h2>View Report: {{ report_name }}</h2>
+<hr>
+{% if report_html %}
+    {{ report_html | safe }}
+{% else %}
+    <p>{{ report_html }}</p>
+{% endif %}
+<p><a href="{% url 'report_list' %}">Back to Report List</a></p>

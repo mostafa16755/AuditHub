@@ -1,0 +1,7 @@
+<!-- csv_analyzer/templates/csv_analyzer/analyse_csv.html -->
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="csv_file" accept=".csv">
+    <button type="submit">Upload and Analyse CSV</button>
+</form>
