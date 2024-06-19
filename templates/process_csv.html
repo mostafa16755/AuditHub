@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process CSV</title>
+</head>
+<body>
+    <h1>Process CSV</h1>
+    <form method="post" action="{% url 'process_csv' %}">
+        {% csrf_token %}
+        <input type="hidden" name="csv_data" value="{{ csv_data }}">
+        <p>Number of duplicates: {{ num_duplicates }}</p>
+        <p>Number of null values: {{ num_nulls }}</p>
+        <label for="remove_nulls">Remove Null Values</label>
+        <input type="checkbox" id="remove_nulls" name="remove_nulls">
+        <label for="remove_duplicates">Remove Duplicates</label>
+        <input type="checkbox" id="remove_duplicates" name="remove_duplicates">
+        <button type="submit">Process</button>
+    </form>
+</body>
+</html>

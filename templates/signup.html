@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup-Page</title>
+    <link href="{% static 'boxicons.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <img class="background" src="{% static 'images/Group 214.png' %}">
+    <div class="Logo" style="left: 29px; top: 24px; position: absolute">
+        <img class="Rectangle5" style="width: 50px; height: 50px; left: 0px; top: 0px; position: absolute" src="{% static 'images/Rectangle 5.png' %}" />
+        <div class="Audit- Hub" style="left: 54px; top: 13px; position: absolute; color: #3498DB; font-size: 20px; font-family: Inter; font-weight: 500; word-wrap: break-word">AuditHub</div>
+    </div>
+    
+    <div class="container1">
+        <div id="form" class="form-box login">
+            <h3>Sign up</h3>
+            <form method="POST">
+                {% csrf_token %}
+                <!-- Display form errors -->
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <li>{{ field.label }}: {{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                <div class="input-box">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" id="username" name="username" placeholder="" >
+                    <label for="username">Username</label> 
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" id="name" name="name" placeholder="">
+                    <label for="name">Name</label> 
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="text" id="id" name="id" placeholder="">
+                    <label for="id">ID</label> 
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-message'></i>
+                    <input type="email" id="email" name="email" placeholder="">
+                    <label for="email">Email</label> 
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-business'></i>
+                    <input type="text" id="company" name="company" placeholder="">
+                    <label for="company">Company</label> 
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" id="password1" name="password1" placeholder="">
+                    <i class='bx bx-hide' id="pass-toggle-btn"></i>
+                    <label for="password1">Password</label> 
+                </div>
+                <div class="input-box">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" id="password2" name="password2" placeholder="">
+                    <label for="password2">Confirm password</label> 
+                </div>
+                <div class="checksign">
+                    <span class="checkbox">
+                        <input type="checkbox" id="check">
+                        <label for="check">Accept all authorization terms</label>
+                    </span>
+                </div>
+                <div class="input-box">
+                    <button class="btnsign" type="submit">Sign Up</button>
+                </div>    
+            </form>            
+        </div>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

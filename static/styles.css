@@ -1,0 +1,450 @@
+.background{
+    width: 830px;
+     height: 620px; 
+     left: 515px;
+      top: 33px;
+       position: absolute;
+         
+ }
+.container {
+    text-align: center;
+   
+    padding: 20px;
+    border-radius: 5px;
+   
+    width: 466px;
+    height: 119px;
+    left: 0px; 
+    top: 112px;
+    position: absolute; 
+    color: #21344E;
+    font-size: 16px;
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 20.82px;
+    word-wrap: break-word
+}
+
+h1 {
+    
+     left: 40px;
+     top: 16px;
+      position: absolute; 
+      color: #21344E; 
+      font-size: 14px; 
+      font-family: Inter;
+      font-size: 40px;
+       font-weight: 900;
+        word-wrap: break-word 
+        
+
+}
+.Pindex{
+   
+    float: left;
+    padding-left: 30px;
+    padding-top: 112px;
+    margin-top: 10px;
+    margin-left: 10px;
+
+     width: 466px; height: 119px; left: 0px; top: 112px; position: absolute; 
+     color: #21344E; font-size: 16px; font-family: Inter; font-weight: 400; line-height: 20.82px; word-wrap: break-word
+}
+
+
+button.Sign_Up{
+    width: 180px; height: 42px; 
+    font-size: 18px;
+    font-family: Inter;
+    font-weight: 800; 
+       padding: 10px 60px; 
+       left: 100px; top: 0px;
+        display: inline-flex; 
+        margin: 10px;
+       cursor: pointer;
+      margin-top: 485px;    
+        border: none;
+       border-radius: 5px;
+        color: #F4FFF9;
+        background-color:#22345A;
+       
+       word-wrap: break-word 
+      
+}
+button.login{
+    width: 180px; height: 42px; 
+    font-size: 18px;
+    font-family: Inter;
+   
+    left: 193px; top: 0px; 
+    font-weight: 800; 
+       padding: 10px 60px; 
+       left: 100px; top: 0px;
+        display: inline-flex; 
+        margin: 10px;
+       cursor: pointer;
+      margin-top: 485px;
+ 
+      text-align: center;
+        border: none;
+       border-radius: 5px;
+        color: #F4FFF9;
+        background-color:#22345A;
+       
+       word-wrap: break-word 
+      
+}
+
+/* css for login */
+
+.form-box h2 {
+    font-size: 22px;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-left: 100px;
+    position: relative;
+    margin-top: 100px;
+   
+}
+
+.form-box .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.input-box input {
+    width: 23%;
+    height:25%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    border-bottom: 2px solid #192940;
+    padding: 5px 20px 5px 20px;
+    padding-right: 23px;
+}
+
+  .input-box input:focus,
+  .input-box input:not(:placeholder-shown)
+  { 
+    border-bottom: 2px solid #3498DB;
+}   
+
+
+   .input-box input:focus ~ label,
+   .input-box input:not(:placeholder-shown) ~ label
+ {
+    top: -2px;
+    color: #3498DB;
+}   
+
+.input-box label {
+    position: absolute;
+    top: 40%;
+    left: 40px;
+    transform: translateY(-100%);
+    font-size: 16px;
+    color: #192940;
+    transition: .5s;
+}
+.input-box i {
+    position: relative;
+   
+    left: 20px;
+    top: 19%;
+    font-size: 18px;
+    transform: translateY(-50%);
+    transition: .5s;
+    
+}
+
+ .input-box input:focus ~ i,
+.input-box input:not(:placeholder-shown) ~i {
+    top: -5px;
+    
+} 
+
+.checklogin {
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 37px;
+}
+
+.forgot-pw {
+    margin-left: 126px;
+    color: #3498DB;
+}
+
+
+
+.checkbox label {
+    color: black;
+    font-size: 15px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.checkbox input {
+    accent-color: #192940;
+}
+.btn {
+    position: relative;
+    width: 25%;
+    height: 45px;
+    background: transparent;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    border: 2px solid #22345A;
+    margin-left: 29px;
+    background-color: #192940;
+    color: white;
+    margin-top: 15px;
+}
+.login_link {
+    text-decoration: none;
+   
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 35px;
+    margin-left: 155px;
+}
+
+.login_link a {
+    text-decoration: underline;
+    color: #3498DB; 
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
+
+.line {
+    height: 1px;
+    width: 26%;
+    position: relative;
+    background-color: #8AAFBF;
+    margin-top: 30px;
+    margin-left: 44px;
+}
+
+.line::before {
+    content: 'OR';
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: #000;
+    padding: 0 10px;
+}
+
+.text {
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: Inter;
+    margin-left: 155px;
+    margin-top: 10;
+    position: absolute;
+}
+
+.text a {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top: 20px;
+    left: 0px;
+}
+form input.error,
+form select.error {
+  border-color: #f91919;
+  
+}
+/* for error message */
+form small {
+    font-size: 14px;
+    margin-top: 2px;
+    display: block;
+    color: #f91919;
+    padding-left: 25px; 
+  }
+  #pass-toggle-btn {
+    position: absolute;
+    left: 26%;
+    height: 45px;
+    top: 26px;
+    font-size: 20px;
+   width: 45px;
+    color: #192940;
+    
+  }
+  /* css for signup */
+  .form-box h3 {
+    color: black;
+    font-family: Inter;
+    font-weight: 400;
+   font-size: 22px;
+      margin-top: 90px;
+    margin-bottom: 25px;
+    margin-left: 150px;
+    position: relative;
+    
+}
+.checksign {
+    margin-top: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 37px;
+}
+.btnsign {
+    position: relative;
+    width: 25%;
+    height: 45px;
+    background: transparent;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    border: 2px solid #22345A;
+    margin-left: 29px;
+    background-color: #192940;
+    color: white;
+    margin-top: 5px;
+}
+/* css for home =============*/
+ .Home *{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+  
+.backimg{
+    width: 1000px;
+    left: 200px;
+    bottom: 80px;
+    top: 70px;
+ height: 500px; 
+   position: absolute;
+  } 
+
+.sidebar{
+    position: fixed;
+    top: 0;
+   left: 0;
+    width: 180px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #8AAFBF;
+    padding: 10px 10px;
+    
+    transition: all 0.5s ease;
+}
+.sidebar .head{
+   display: flex;
+    gap: 20px;
+    }
+.sidebar h2{
+    padding-top: 15px;
+    font-size: 16px;
+    font-weight: 500;
+   transition: all 0.4s ease;
+}
+.logo-img{
+    min-width:  40px;
+   
+    
+}
+ .sidebar li  img {
+    width: 30px; /* Set the width of your image */
+    height: 30px; /* Set the height of your image */
+     margin-right: 5px;  /* Adjust spacing between image and text as needed */
+    
+}
+.sidebar ul li{
+    list-style: none;
+    margin-bottom: 5px;
+}
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 15px 5px;
+    border-radius: 10px;
+   transition: all  0.3s ease;
+    color: white;
+}
+.sidebar ul  li a:hover,
+.sidebar ul li.active a {
+    color: #8AAFBF;
+    background-color: #22345A;
+}
+.sidebar .sub-menu{
+    display: none;
+    margin-left: 30px;
+    padding-left: 20px;
+    padding-top: 5px;
+    border-left: 1px solid #8AAFBF;
+}
+.sidebar .sub-menu li a{
+    padding: 10px 30px;
+    font-size: 15px;
+}
+.rotate {
+    transform: rotate(180deg);
+}
+.sub-menu.show {
+    display: block;
+}
+.nav{
+    flex: 1;
+}
+.menu-btn{
+    position: absolute;
+    transform: translateY(-50%) rotate(180deg);
+        transition: all 0.5s ease;
+    right: -15px;
+    top: 5%;
+    height: 25px;
+        width: 25px;
+        font-size: 22px;
+        color: #8AAFBF; 
+        background: #22345A;
+         border-radius: 50px;
+         display: flex;
+        align-items: center;
+        justify-content: center;
+       cursor: pointer;
+}
+.menu-btn i {
+    transition: all 0.5s ease;
+}
+.sidebar.active{
+    width: 65px;
+}
+.sidebar.active .text1{
+    opacity: 0;
+}
+.sidebar.active .menu-btn i{
+    transform: rotate(180deg);
+}
+.sidebar.active .logo-details {
+    display: none; 
+}
+
+/* =========== */

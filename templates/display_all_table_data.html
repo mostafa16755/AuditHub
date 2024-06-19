@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Table Data</title>
+</head>
+<body>
+    <h1>All Table Data</h1>
+    {% for table_name, table_info in table_data.items %}
+    <h2>{{ table_name }}</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                {% for column in table_info.columns %}
+                <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in table_info.data %}
+            <tr>
+                {% for value in row %}
+                <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action="{% url 'download_csv' %}" method="get">
+        {% csrf_token %}
+        <input type="hidden" name="table_name" value="{{ table_name }}">
+        {% for column in table_info.columns %}
+        <label for="{{ column }}">{{ column }}</label>
+        <input type="checkbox" name="columns" value="{{ column }}">
+        {% endfor %}
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date">
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date">
+        <button type="submit">Download CSV</button>
+    </form>
+    {% endfor %}
+</body>
+</html>

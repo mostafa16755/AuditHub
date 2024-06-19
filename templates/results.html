@@ -1,0 +1,19 @@
+<!-- results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Results</h1>
+    <p>Number of duplicates: {{ num_duplicates }}</p>
+    <p>Number of null values: {{ num_nulls }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="csv_data" value="{{ df }}">
+        <button type="submit" name="download_csv">Download Processed CSV</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!-- base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Title{% endblock %}</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <div class="Container">
+        <div class="sidebar active">
+            <div class="menu-btn">
+                <i class='bx bx-chevron-right toggle'></i>
+            </div>
+            <div class="head">
+                <div class="logo-img">
+                    <img src="{% static 'images/Rectangle 5.png' %}" alt="">
+                </div>
+                <div class="logo-details">
+                    <h2>Audit-Hub</h2>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img class="icon" src="{% static 'images/User 2.png' %}">
+                                <span class="text1"> {{ request.user.username }} </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'extract_tables' %}">
+                                <img class="icon" src="{% static 'images/Server Download.png' %}">
+                                <span class="text1"> Extract Data </span>
+                            </a>
+                           
+                        </li>
+                        <li>
+                            <a href = "{% url 'upload_csv' %}">
+                                <img class="icon" src="{% static 'images/Settings Gear.png' %}">
+                                <span class="text1"> Process Data </span>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="#">
+                                <img class="icon" src="{% static 'images/Group 213.png' %}">
+                                <span class="text1"> Analysis Data </span>
+                                <i class='bx bxs-chevron-down arrow text1'></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li >
+                                    <a href="#">
+                                        <span class="text1">New Analysis</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text1">Old Reports</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href = "#">
+                                <img class="icon" src="{% static 'images/create.png' %}">
+                                <span class="text1"> Audit Report </span>
+                                <i class='bx bxs-chevron-down arrow text1'></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li >
+                                    <a href="#">
+                                        <span class="text1">New Analysis</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text1">Old Reports</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="{% url 'logout' %}">
+                            <img class="icon" src="{% static 'images/Logout.png' %}">
+                            <span class="text1">Log Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

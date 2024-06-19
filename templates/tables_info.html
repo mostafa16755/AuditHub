@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tables Info</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1d2d3f;
+        }
+
+        h2 {
+            color: #1d2d3f;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        ul li strong {
+            color: #000;
+        }
+
+        ul li ul {
+            padding-left: 20px;
+            list-style-type: none;
+        }
+
+        ul li ul li {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tables Info</h1>
+    
+    <h2>Table Names and Attributes:</h2>
+    <ul>
+        {% for table, attributes in table_attributes.items %}
+        <li>
+            <strong>{{ table }}</strong>:
+            <ul>
+                {% for attribute in attributes %}
+                <li>{{ attribute }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'display_all_table_data' %}">Extract All Tables Data</a>
+</body>
+</html>

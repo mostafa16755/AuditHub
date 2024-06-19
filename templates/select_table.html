@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Data</title>
+</head>
+<body>
+    <h1>Table Data</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <!-- Assuming the first row of `table_data` contains column names -->
+                {% for column_name in table_data[0].keys() %}
+                    <th>{{ column_name }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in table_data %}
+                <tr>
+                    {% for value in row.values() %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
