@@ -2,4 +2,3 @@ django
 sqlalchemy
 pandas
 pymysql
-ydata_profiling
