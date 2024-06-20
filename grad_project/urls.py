@@ -6,4 +6,6 @@ urlpatterns = [
     path('', include('accounts.urls')),
     path('', include('extract_data.urls')),
     path('', include('process.urls')),
+    path('', include('audit_reports.urls')),
+
 ]

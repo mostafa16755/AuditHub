@@ -1,0 +1,20 @@
+<!-- audit_report_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Audit Reports</title>
+</head>
+<body>
+    <h1>Old Audit Reports</h1>
+    <ul>
+        {% for report in audit_reports %}
+            <li><a href="{% url 'audit_report_detail' report.id %}">{{ report.company }} - {{ report.date }}</a></li>
+        {% empty %}
+            <li>No audit reports available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

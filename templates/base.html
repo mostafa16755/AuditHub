@@ -49,20 +49,7 @@
                             <a href="#">
                                 <img class="icon" src="{% static 'images/Group 213.png' %}">
                                 <span class="text1"> Analysis Data </span>
-                                <i class='bx bxs-chevron-down arrow text1'></i>
                             </a>
-                            <ul class="sub-menu">
-                                <li >
-                                    <a href="#">
-                                        <span class="text1">New Analysis</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="text1">Old Reports</span>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
                             <a href = "#">
@@ -72,12 +59,12 @@
                             </a>
                             <ul class="sub-menu">
                                 <li >
-                                    <a href="#">
-                                        <span class="text1">New Analysis</span>
+                                    <a href="{% url 'create_audit_report' %}">
+                                        <span class="text1">New Report</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="{% url 'audit_report_list' %}">
                                         <span class="text1">Old Reports</span>
                                     </a>
                                 </li>

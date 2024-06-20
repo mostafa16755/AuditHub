@@ -1,0 +1,18 @@
+<!-- audit_report_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ audit_report.company }} - Audit Report</title>
+</head>
+<body>
+    <h1>{{ audit_report.company }} - Audit Report</h1>
+    <p>Date: {{ audit_report.date }}</p>
+    <p>Content: {{ audit_report.content }}</p>
+    <p>Addressee: {{ audit_report.addressee }}</p>
+    <!-- Include other fields as needed -->
+    <a href="{% url 'audit_report_list' %}">Back to Audit Reports List</a>
+</body>
+</html>
