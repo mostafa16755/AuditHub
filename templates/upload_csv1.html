@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload CSV</title>
+</head>
+<body>
+    <h1>Upload CSV File</h1>
+    <form method="post" enctype="multipart/form-data" action="{% url 'upload_csv' %}">
+        {% csrf_token %}
+        <label for="csv_file">Choose CSV file:</label>
+        <input type="file" id="csv_file" name="csv_file" accept=".csv">
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>

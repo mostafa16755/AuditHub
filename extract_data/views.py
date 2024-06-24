@@ -1,13 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.exc import SQLAlchemyError
 from django.http import HttpResponse
-from django.contrib.sessions.models import Session
+from datetime import datetime
 import csv
-from django.http import HttpResponse
-
-from sqlalchemy import create_engine
-from sqlalchemy.exc import SQLAlchemyError
 
 def extract_tables(request):
     if request.method == 'POST':
@@ -90,22 +86,15 @@ def display_all_table_data(request):
 
     # Close the database connection
     connection.close()
-
     # Pass the table data to the template
     return render(request, 'display_all_table_data.html', {'table_data': table_data})
-
 
 def download_csv(request):
     table_name = request.GET.get('table_name')
     columns = request.GET.getlist('columns')
+    date_column = request.GET.get('date_column', 'PurchaseDate')  # Default to 'PurchaseDate' if not provided
     start_date = request.GET.get('start_date')
     end_date = request.GET.get('end_date')
-
-    if not table_name:
-        return HttpResponse("Table name is missing", status=400)
-
-    if not columns:
-        return HttpResponse("No columns selected", status=400)
 
     con_string = request.session.get('con_string')
     if not con_string:
@@ -113,41 +102,47 @@ def download_csv(request):
 
     try:
         engine = create_engine(con_string)
-        connection = engine.connect()
-        inspector = inspect(engine)
+        with engine.connect() as connection:
+            inspector = inspect(engine)
+            # Validate that the date column exists in the table
+            if date_column and date_column not in [col['name'] for col in inspector.get_columns(table_name)]:
+                return HttpResponse(f"Date column '{date_column}' does not exist in table '{table_name}'", status=400)
 
-        table_columns = inspector.get_columns(table_name)
-        column_names = [column['name'] for column in table_columns]
+            select_columns = ', '.join(columns)
+            query = f"SELECT {select_columns} FROM {table_name}"
+            params = {}
 
-        for col in columns:
-            if col not in column_names:
-                return HttpResponse(f"Column '{col}' does not exist in table '{table_name}'", status=400)
+            # Build the query based on the provided dates
+            if start_date and end_date and date_column:
+                query += f" WHERE {date_column} BETWEEN :start_date AND :end_date"
+                params = {'start_date': start_date, 'end_date': end_date}
+            elif start_date and date_column:
+                query += f" WHERE {date_column} >= :start_date"
+                params = {'start_date': start_date}
+            elif end_date and date_column:
+                query += f" WHERE {date_column} <= :end_date"
+                params = {'end_date': end_date}
 
-        select_columns = ', '.join(columns)
-        query = f"SELECT {select_columns} FROM {table_name}"
-        params = {}
+            # Execute the query with parameters using SQLAlchemy text
+            result = connection.execute(text(query).params(**params))
+            data = result.fetchall()
 
-        if start_date and end_date:
-            # Ensure proper handling of dates to prevent SQL injection
-            query += " WHERE PurchaseDate BETWEEN :start_date AND :end_date"
-            params = {'start_date': start_date, 'end_date': end_date}
+            now = datetime.now()
+            formatted_now = now.strftime("%Y-%m-%d %H:%M")
 
-        # Execute the query with parameters using SQLAlchemy text
-        result = connection.execute(text(query).params(**params))
+            response = HttpResponse(content_type='text/csv')
+            response['Content-Disposition'] = f'attachment; filename="{table_name}_Extracted_At_{formatted_now}.csv"'
 
-        data = result.fetchall()
+            writer = csv.writer(response)
+            writer.writerow(columns)
+            for row in data:
+                writer.writerow(row)
 
-        response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = f'attachment; filename="{table_name}.csv"'
-
-        writer = csv.writer(response)
-        writer.writerow(columns)
-        for row in data:
-            writer.writerow(row)
-
-        connection.close()
-
-        return response
+            return response
 
     except SQLAlchemyError as e:
+        # Debug: Print the error message
+        print(f"SQLAlchemyError: {e}")
         return HttpResponse(str(e), status=500)
+
+    

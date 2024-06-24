@@ -4,60 +4,84 @@
     <title>Tables Info</title>
     <style>
         body {
-            font-family: 'Courier New', Courier, monospace;
-            margin: 20px;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
             background-color: #f4f4f4;
             color: #333;
         }
-
-        h1 {
+       h1 {
             text-align: center;
-            color: #1d2d3f;
+            color: #21344E;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            margin-top: 20px;
         }
 
         h2 {
+            color: #21344E;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+           text-align: center;
+        }
+
+        .table-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .table-box {
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+            padding: 20px;
+        }
+
+        .table-box:hover {
+            background-color: #f7f7f7;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .table-title {
             color: #1d2d3f;
+            font-size: 1.5em;
             margin-bottom: 10px;
         }
 
-        ul {
-            padding-left: 20px;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-        }
-
-        ul li strong {
-            color: #000;
-        }
-
-        ul li ul {
+        .attribute-list {
             padding-left: 20px;
             list-style-type: none;
+            margin: 0;
+            font-size: 1.1em;
         }
 
-        ul li ul li {
-            color: #888;
+        .attribute-list li {
+            color: #555;
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
     <h1>Tables Info</h1>
-    
     <h2>Table Names and Attributes:</h2>
-    <ul>
+    <div class="table-container">
         {% for table, attributes in table_attributes.items %}
-        <li>
-            <strong>{{ table }}</strong>:
-            <ul>
+        <div class="table-box">
+            <h2 class="table-title">{{ table }}</h2>
+            <ul class="attribute-list">
                 {% for attribute in attributes %}
                 <li>{{ attribute }}</li>
                 {% endfor %}
             </ul>
-        </li>
+        </div>
         {% endfor %}
-    </ul>
-    <a href="{% url 'display_all_table_data' %}">Extract All Tables Data</a>
+    </div>
+    
+    <a href="{% url 'display_all_table_data' %}" style="display: block; text-align: center; margin: 20px auto; padding: 10px 20px; font-size: 1.2em; color: #ffffff; background-color: #1d2d3f; text-decoration: none; border-radius: 5px; width: fit-content;">Extract All Tables Data</a>
 </body>
 </html>
