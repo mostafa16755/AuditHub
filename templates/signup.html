@@ -8,6 +8,61 @@
     <link href="{% static 'boxicons.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
+<style>
+    html, body {
+  overflow: hidden;
+}
+.checksign {
+  margin-left: 45px;
+  }
+.form-boxs h3 {
+    color: black;
+    font-family: Inter;
+    font-weight: 400;
+   font-size: 22px;
+    margin-top: 65px;
+    margin-bottom: 25px;
+    margin-left: 150px;
+    position: relative;
+    }
+    .input-box input {
+        width: 23%;                
+    height: 25px;               
+    background: transparent;    
+    border: none;               
+    outline: none;              
+    font-size: 16px;           
+    color: black;               
+    font-weight: 600;           
+    border-bottom: 2px solid #192940; 
+    padding: 10px;              
+    box-sizing: border-box;     
+    margin-top: 3px;  
+    margin-left: 40px;    
+    
+    }
+    .form-boxs .input-box {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 0;
+    } 
+    .btnsign {
+   display: block;
+    width: 25%;
+    height: 45px;
+    background: transparent;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    border: 2px solid #22345A;
+    margin-left: 30px;
+    background-color: #192940;
+    color: white;
+    margin-top: 15px;
+} 
+    
+</style>
 <body>
     <img class="background" src="{% static 'images/Group 214.png' %}">
     <div class="Logo" style="left: 29px; top: 24px; position: absolute">
@@ -41,7 +96,7 @@
                     <i class='bx bxs-user'></i>
                     <input type="text" id="name" name="name" placeholder="">
                     <label for="name">Name</label> 
-                </div>
+                </div> 
                 <div class="input-box">
                     <i class='bx bxs-lock-alt'></i>
                     <input type="text" id="id" name="id" placeholder="">
@@ -68,11 +123,11 @@
                     <input type="password" id="password2" name="password2" placeholder="">
                     <label for="password2">Confirm password</label> 
                 </div>
-                <div class="checksign">
+                 <div class="checksign">
                     <span class="checkbox">
                         <input type="checkbox" id="check">
                         <label for="check">Accept all authorization terms</label>
-                    </span>
+                    </span> 
                 </div>
                 <div class="input-box">
                     <button class="btnsign" type="submit">Sign Up</button>

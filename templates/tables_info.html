@@ -1,7 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Tables Info</title>
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Extract Tables
+{% endblock %}
+
+{% block body_class %}
+    extract-tables
+{% endblock %}
+
+{% block content %}
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -65,9 +74,7 @@
             margin-bottom: 5px;
         }
     </style>
-</head>
-<body>
-    <h1>Tables Info</h1>
+
     <h2>Table Names and Attributes:</h2>
     <div class="table-container">
         {% for table, attributes in table_attributes.items %}
@@ -83,5 +90,4 @@
     </div>
     
     <a href="{% url 'display_all_table_data' %}" style="display: block; text-align: center; margin: 20px auto; padding: 10px 20px; font-size: 1.2em; color: #ffffff; background-color: #1d2d3f; text-decoration: none; border-radius: 5px; width: fit-content;">Extract All Tables Data</a>
-</body>
-</html>
+{% endblock %}
